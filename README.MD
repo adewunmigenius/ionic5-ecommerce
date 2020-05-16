@@ -17,4 +17,4 @@ Pls check [Deploying Ionic IOS and Android App](https://ionicframework.com/docs/
 ## Open Anndroid Studio
 ```ionic cap open android```
 
-## Build/Gennerate Apk on Android Studio
+### Build/Gennerate Apk on Android Studio
