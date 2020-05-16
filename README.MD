@@ -3,7 +3,7 @@ A simple ionic 5 Ecommerces Application guide beginners on buildding hybrid App 
 #### N:B LocalStorage is used as data storage, as this Application doesn't interact with a Backend server 
 
 ## Install all dependencies
-```npm innstall```
+```npm install```
 
 ## Serve Application to Browser
 ```ionic serve```
