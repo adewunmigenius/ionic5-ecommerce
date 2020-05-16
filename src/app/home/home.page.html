@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end" [routerLink]="['/cart']" routerDirection="forward" class="user-cart">
+      <ion-icon name="cart"></ion-icon><ion-badge *ngIf="cartNumer" color="success">{{cartNumer}}</ion-badge>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <!-- <ion-title size="large">Blank</ion-title> -->
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="products.length > 0">
+    <!-- <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->
+    <h5 style="margin-left: 15px;">Products List</h5>
+    <ion-list>
+      <ion-item *ngFor="let entry of products; index as i">
+        <ion-checkbox [(ngModel)]="entry.isChecked"></ion-checkbox>
+        <ion-label style="margin-left:10px">{{entry.product}}</ion-label>
+
+        <span class="qty">Qty: {{entry.qty}}</span>
+        <ion-button color="danger" size="small" (click)="decrement(i)"><ion-icon name="remove-outline"></ion-icon></ion-button>
+          <span class="demandNum">{{entry.number}}</span>
+        <ion-button color="success" size="small" (click)="increment(i)"><ion-icon name="add-outline"></ion-icon></ion-button>
+      </ion-item>
+    </ion-list>
+
+    <ion-button style="margin-right:16px" class="ion-float-right" (click)="addCart()"><ion-icon name="add-outline"></ion-icon> Add to Cart</ion-button>
+  </div>
+  <div id="container" *ngIf="products.length == 0">
+    <strong>No product found</strong>
+    <br><br>
+    <ion-button [routerLink]="['/products']" routerDirection="forward"> Add Product</ion-button>
+  </div>
+</ion-content>

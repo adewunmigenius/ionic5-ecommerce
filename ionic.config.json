@@ -1,0 +1,7 @@
+{
+  "name": "salesApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

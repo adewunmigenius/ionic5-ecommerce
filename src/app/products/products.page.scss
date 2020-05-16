@@ -1,0 +1,38 @@
+.productForm{
+    width: 300px;
+    margin: 3rem auto 0;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+    h5,p{
+        text-align: center;
+    }
+    p{
+        color: green;
+    }
+    ion-button{
+        margin-top: 20px;
+    }
+}
+.info-btn ion-icon{
+    font-size: 30px;
+    color: #033A69;
+    margin-right: 15px;
+  }
+
+.subMproduct{
+    width:350px; 
+    margin: 30px auto;
+    padding: 10px;
+    box-shadow: 0 0 5px #ccc;
+    h5{
+        margin: 0 17px 10px;
+    }
+    span{
+        margin-right: 10px;
+    }
+    p{
+        font-size: 12px;
+    }
+}

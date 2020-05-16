@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="productCart" *ngIf="carts.length > 0">
+    <h5>Product cart</h5>
+    <ion-item>
+      <span>S/N</span>
+      <ion-label>Product</ion-label>
+      <span>Quantity</span>
+      <p>Action</p>
+    </ion-item>
+    <ion-list>
+      <ion-item *ngFor="let entry of carts; index as i">
+        <span>{{i+1}}</span>
+        <ion-label>{{entry.product}}</ion-label>
+        <span>{{entry.number}}</span>
+        <ion-button style="margin:0" color="danger" size="small" (click)="delete(i)"><ion-icon name="trash-outline"></ion-icon></ion-button>
+      </ion-item>
+    </ion-list>
+    <ion-button class="ion-float-right" size="small" (click)="purchase(i)"><ion-icon name="add-outline"></ion-icon> Buy</ion-button>
+  </div>
+
+  <div id="noProduct" *ngIf="carts.length == 0">
+    <strong>No product in cart</strong>
+    <br><br>
+    <ion-button [routerLink]="['/home']" routerDirection="forward">Products</ion-button>
+  </div>
+
+  <div *ngIf="purchased.length > 0">
+    <h5>Purchased Product</h5>
+    <ion-item>
+      <span>S/N</span>
+      <ion-label>Product</ion-label>
+      <span style="margin-right: 40px;">Quantity</span>
+      <p>Date</p>
+    </ion-item>
+    <ion-list>
+      <ion-item *ngFor="let entry of purchased; index as i">
+        <span>{{i+1}}</span>
+        <ion-label>{{entry.product}}</ion-label>
+        <span>{{entry.number}}</span>
+        <p>{{entry.date}}</p>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

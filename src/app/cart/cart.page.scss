@@ -1,0 +1,26 @@
+.productCart{
+    overflow: hidden;
+    // border: 1px solid #eee;
+    ion-button{
+        margin: 15px 16px;
+    }
+}
+div{
+    width:340px; 
+    margin: 15px auto;
+    padding: 10px;
+    box-shadow: 0 0 5px #ccc;
+    h5{
+        margin-left: 15px
+    }
+    span{
+        margin-right: 10px;
+    }
+    p{
+        font-size: 12px;
+    }
+}
+#noProduct{
+    text-align: center;
+    border: none;
+}

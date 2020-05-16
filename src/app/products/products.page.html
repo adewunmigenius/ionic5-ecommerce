@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="userInfo($event)" class="info-btn">
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Create products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="productForm" #prodForm="ngForm" (ngSubmit)="createProd(prodForm)">
+    <p>{{successMsg}}</p>
+    <h5>Create Product</h5>
+    <ion-item>
+      <ion-label position="floating">Product</ion-label>
+      <ion-input placeholder="e.g amala" class="form-control" name="product" id="product" type="text" [(ngModel)]="product" #vproduct="ngModel" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Quantity</ion-label>
+      <ion-input placeholder="e.g 100" class="form-control" name="qty" id="qty" type="number" [(ngModel)]="qty" #vqty="ngModel" required></ion-input>
+    </ion-item>
+    
+    <ion-button class="ion-float-right"  size="small" type="submit" [disabled]="prodForm.invalid"><ion-icon name="add-outline"></ion-icon> Add</ion-button>
+  </form>
+
+  <div class="subMproduct" *ngIf="submitted.length > 0">
+    <h5>Product List</h5>
+    <ion-item>
+      <span>S/N</span>
+      <ion-label>Product</ion-label>
+      <span>Quantity</span>
+      <p>Action</p>
+    </ion-item>
+    <ion-list>
+      <ion-item *ngFor="let entry of submitted; index as i">
+        <span>{{i+1}}</span>
+        <ion-label>{{entry.product}}</ion-label>
+        <span>{{entry.qty}}</span>
+        <ion-button color="danger"  size="small" (click)="delete(i)"><ion-icon name="trash-outline"></ion-icon></ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
