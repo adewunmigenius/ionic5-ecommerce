@@ -1,5 +1,7 @@
 A simple ionic 5 Ecommerces Application guide beginners on buildding hybrid App with ionic 5 and Angular 9
 
+### N:B LocalStorage is used as data storage, as Application doesn't interact with a Backend server 
+
 ## Install all dependencies
 ```npm innstall```
 
@@ -7,9 +9,10 @@ A simple ionic 5 Ecommerces Application guide beginners on buildding hybrid App 
 ```ionic serve```
 
 ## Deploy App to generate APK
-```ionic build```
-```ionic cap add Android```
-```ionic cap copy```
+```ionic build```\
+```ionic cap add Android```\
+```ionic cap copy```\
+Pls check [Deploying Ionic IOS and Android App](https://ionicframework.com/docs/angular/your-first-app/6-deploying-mobile)
 
 ## Open Anndroid Studio
 ```ionic cap open android```
